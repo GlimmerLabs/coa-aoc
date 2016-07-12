@@ -16,9 +16,11 @@ or
 
 The `float` indicates that it's a real number (something computer scientists
 and computer programmers refer to as a "floating point" number, to contrast
-them with whole numbers, which don't have decimal points).
+them with whole numbers, which don't have decimal points).  We can also write
+`int` for integers, and some other things for other kinds of values.
 
-In the second part, you prepare your program to run by writing the following
+In the second part of the program, you indicate how your Processing should
+set up the environment (e.g., the window size) by writing the following
 (with some instructions instead of ellipses).  
 
     void setup() {
@@ -46,7 +48,7 @@ about programs having these three parts.
 Initial Code
 ------------
 
-We find that it's easiest if you have some code to start with.  Here
+We find that it's easiest if you have some code to think about.  Here
 is a program (with lots of extra global variables) that you will start 
 with.
 
@@ -106,6 +108,9 @@ the program.  Record what effects you see.  For example,
     2. What happens if you increase the third parameter to `ellipse`
     to 100?  What does that parameter seem to represent?
 
+6. Write instructions to make the ellipse start in the center of the
+image, rather than somewhere near the top left.
+
 Using Variables
 ---------------
 
@@ -124,7 +129,6 @@ Global variables name things, which makes your program easier to read.
     // Initial values
     float imageWidth = 500;
     float imageHeight = 300;
-
     float startX = 40;  // The starting x value
     float startY = 50;  // The starting y value
     float startW = 20;  // The starting width
@@ -133,20 +137,24 @@ Global variables name things, which makes your program easier to read.
     float startColor = 0;  // 0-255, 0 is black, 255 is white
 
     // How values might changes
-    float deltaX = 10;  
+    float deltaX = 11;  
     float deltaY = 5;
     float deltaW = 1;
     float deltaH = 2;
     float deltaWeight = 0.3;   
     float deltaColor = 1;
 
+    // Limits on values
+    float maxWidth = 50;
+    float maxHeight = 50;
+
     // Values that change
     float x;            // The current x value
     float y;            // The current y value
     float w;            // The current width
     float h;            // The current height
-    float weight;       // The current weight
-    float color;        // The current color
+    float weight;       // The current line weight
+    float lineColor;    // The current line color
     
     void setup() {
       // Set the size of the window
@@ -160,12 +168,12 @@ Global variables name things, which makes your program easier to read.
       w = startW;
       h = startH;
       weight = startWeight;
-      color = startColor;
+      lineColor = startColor;
     } // setup()
     
     void draw() {
       // Use a black, thin, pen
-      stroke(color);
+      stroke(lineColor);
       strokeWeight(weight);
       
       // Don't fill shapes
@@ -206,6 +214,19 @@ if you replace `ellipse` with `rect`?  Make a note in your journal.
 9. Read the Processing documentation for `rect` at
 <https://processing.org/reference/rect_.html> and take notes as
 to what other capabilities are available for rectangles.
+
+10. Switch back to ellipses.
+
+11. As you may have noted, the first two parameters to `rect` are the left
+and top edge of the rectangle and the first two parameters to `ellipse` are
+the x and y coordinates of the center.  Figure out how to change your program
+so that when we draw a rectangle, it is centered at the same place as the
+circle.
+
+      // Draw an ellipse
+      ellipse(x,y,w,h);
+      // Draw a rectangle
+      rect( , , , );
 
 Animation
 ---------
@@ -299,12 +320,20 @@ remainder of `x` divided by `y`.  For example, `22 % 5` is 2, since
 
 3. Add the following lines to the end of the `draw` section of your program.
 
-      w = w % imageWidth;
-      h = h % imageHeight;
+      w = w % maxWidth;
+      h = h % maxHeight;
 
-4. Sketch what you expect to happen when `w` and `h` are very large.
+4. Sketch the next few ovals you would expect to see when `w` is 38 and
+`h` is 46.
 
 5. Run the program and observe the result.
+
+6. [Optional] As you may have noticed, there is a somewhat abrupt change
+when we reach the maximum width and height.  Come up with a strategy for
+making the width start to get smaller when it reaches `maxWidth` and
+to have the height start to get smaller when it reaches `maxHeight`.  (We
+do not yet know how to use conditionals, so you can't use that strategy.
+Instead, you need to think about formulae that may help.)
 
 Animation, Revisited
 --------------------
