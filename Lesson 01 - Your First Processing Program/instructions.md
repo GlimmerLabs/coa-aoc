@@ -223,10 +223,10 @@ the x and y coordinates of the center.  Figure out how to change your program
 so that when we draw a rectangle, it is centered at the same place as the
 circle.
 
-      // Draw an ellipse
-      ellipse(x,y,w,h);
-      // Draw a rectangle
-      rect( , , , );
+        // Draw an ellipse
+        ellipse(x,y,w,h);
+        // Draw a rectangle
+        rect( , , , );
 
 Animation
 ---------
