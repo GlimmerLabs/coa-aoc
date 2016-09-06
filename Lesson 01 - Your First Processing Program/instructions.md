@@ -1,12 +1,14 @@
 Lesson 01: Your First Processing Program
 ========================================
 
-You are now ready to explore a simple Processing program.  At this stage,
-you should think about each processing program having three parts.  
+You are now ready to explore a simple Processing program.  At this
+stage of learning Processing, you should think about each processing
+program having three parts.
 
-In the first part, you declare *global variables*, which name the values you
-work with in the program (e.g., the x and y coordinate of things you
-are drawing.)  A variable declaration looks something like the following.
+In the first part of a program, you declare *global variables*,
+which name the values you work with in the program (e.g., the x and
+y coordinate of things you are drawing.)  A variable declaration
+looks something like the following.
 
     float x;
 
@@ -14,10 +16,11 @@ or
 
     float x = 1.0;
 
-The `float` indicates that it's a real number (something computer scientists
-and computer programmers refer to as a "floating point" number, to contrast
-them with whole numbers, which don't have decimal points).  We can also write
-`int` for integers, and some other things for other kinds of values.
+The `float` indicates that it's a real number (something computer
+scientists and computer programmers refer to as a "floating point"
+number, to contrast them with whole numbers, which don't have decimal
+points).  We can also write `int` for integers (whole numbers), and
+some other things for other kinds of values.
 
 In the second part of the program, you indicate how your Processing should
 set up the environment (e.g., the window size) by writing the following
@@ -30,9 +33,9 @@ set up the environment (e.g., the window size) by writing the following
 You can specify the size of the window (or at least the initial size),
 the color for drawing, and so on and so forth.  
 
-In the third part, you tell Processing what you want to draw.  Once again,
-you mark this section with some words and symbols and then fill in the
-details.
+In the third part of the program, you tell Processing what you want
+it to draw.  Once again, you mark this section with some words and
+symbols and then fill in the details.
 
     void draw() {
        ...
@@ -49,12 +52,12 @@ Initial Code
 ------------
 
 We find that it's easiest if you have some code to think about.  Here
-is a program (with lots of extra global variables) that you will start 
+is a program (with no extra global variables) that you will start 
 with.
 
     /**
-     * coa-aoc-01
-     *   The first example for "The Code of Art, The Art of Code".
+     * coa_aoc_01
+     *   The first example for "The Code of Art | The Art of Code".
      *   Draws an oval.
      */
 
