@@ -16,11 +16,14 @@ or
 
     float x = 1.0;
 
-The `float` indicates that it's a real number (something computer
-scientists and computer programmers refer to as a "floating point"
-number, to contrast them with whole numbers, which don't have decimal
-points).  We can also write `int` for integers (whole numbers), and
-some other things for other kinds of values.
+The `float` indicates that it's a number. (Well, more precisely,
+it's a real number.  We use the word `float` because it's really
+something computer scientists and computer programmers refer to as
+a "floating point" number, to contrast them with whole numbers,
+which don't have decimal points and to indicate how they are likely
+represented inside the computer).  We can also write `int` for
+integers (whole numbers), and some other things for other kinds of
+values.
 
 In the second part of the program, you indicate how your Processing should
 set up the environment (e.g., the window size) by writing the following
@@ -55,30 +58,7 @@ We find that it's easiest if you have some code to think about.  Here
 is a program (with no extra global variables) that you will start 
 with.
 
-    /**
-     * coa_aoc_01
-     *   The first example for "The Code of Art | The Art of Code".
-     *   Draws an oval.
-     */
-
-    void setup() {
-      // Set the size of the window
-      size(500,300);
-      // Set the number of frames per second (ignore for now)
-      frameRate(9);
-    } // setup()
-    
-    void draw() {
-      // Use a black, thin, pen
-      stroke(0);
-      strokeWeight(1);
-      
-      // Don't fill shapes
-      noFill();
-
-      // Draw an ellipse
-      ellipse(40, 50, 20, 10);
-    } // draw()
+    ^coa_aoc_01_01/coa_aoc_01_01.pde^
 
 In the instructions for `setup` and `draw`, you will see two kinds of
 things.  There are some lines that start with two slashes.  Those are
@@ -93,7 +73,8 @@ parameters 500 and 300.
 
 Okay, that's enough information.  Let's experiment.
 
-1. In your journal, write down what you think this program do.
+1. In your journal or sketchbook, write down what you think this
+program do.
 
 2. Copy and paste the code into a new Processing project.
 
@@ -102,13 +83,13 @@ Okay, that's enough information.  Let's experiment.
 4. Observe and record the output.  Did you get what you expected?
 
 5. There are nine different numbers in this program: 500, 300, 9,
-0, 1, 40, 50, 20, and 10.  Try changing each of them and re-running 
+0, 1, 150, 75, 200, and 100.  Try changing each of them and re-running 
 the program.  Record what effects you see.  For example,
 
-    1. What happens if you increase the first parameter to `ellipse`
+    1. What happens if you change the first parameter to `ellipse`
     to 100?  What does that parameter seem to represent?
 
-    2. What happens if you increase the third parameter to `ellipse`
+    2. What happens if you change the third parameter to `ellipse`
     to 100?  What does that parameter seem to represent?
 
 6. Write instructions to make the ellipse start in the center of the
@@ -123,68 +104,7 @@ you that Processing programs have three parts, that first program did not
 have the "global variables" that we told you play a role in such programs.
 Global variables name things, which makes your program easier to read.
 
-    /**
-     * coa-aoc-02
-     *   The second example for "The Code of Art, The Art of Code".
-     *   Draws one or more ovals (ellipses).
-     */
-
-    // Initial values
-    float imageWidth = 500;
-    float imageHeight = 300;
-    float startX = 40;  // The starting x value
-    float startY = 50;  // The starting y value
-    float startW = 20;  // The starting width
-    float startH = 10;  // The starting height
-    float startWeight = 1; // The "weight" of lines
-    float startColor = 0;  // 0-255, 0 is black, 255 is white
-
-    // How values might changes
-    float deltaX = 11;  
-    float deltaY = 5;
-    float deltaW = 1;
-    float deltaH = 2;
-    float deltaWeight = 0.3;   
-    float deltaColor = 1;
-
-    // Limits on values
-    float maxWidth = 50;
-    float maxHeight = 50;
-
-    // Values that change
-    float x;            // The current x value
-    float y;            // The current y value
-    float w;            // The current width
-    float h;            // The current height
-    float weight;       // The current line weight
-    float lineColor;    // The current line color
-    
-    void setup() {
-      // Set the size of the window
-      size(imageWidth,imageHeight);
-      // Set the number of frames per second (ignore for now)
-      frameRate(9);
-      
-      // Initialize x, y, w, and h
-      x = startX;
-      y = startY;
-      w = startW;
-      h = startH;
-      weight = startWeight;
-      lineColor = startColor;
-    } // setup()
-    
-    void draw() {
-      // Use a black, thin, pen
-      stroke(lineColor);
-      strokeWeight(weight);
-      
-      // Don't fill shapes
-      noFill();
-
-      // Draw an ellipse
-      ellipse(x,y,w,h);
-    } // draw()
+    ^coa_aoc_01_02/coa_aoc_01_02.pde^
 
 As you'll note, we declare a *lot* of variables at the start.  We don't
 use all of them (and Processing may warn you about that), but we will
@@ -194,7 +114,8 @@ and indicate that we should copy the value associated with the right-hand
 side to the left-hand side.  (You can also write arithmetic expressions
 on the right.)
 
-1. In your journal, write down what you think this program will do.
+1. In your journal/sketchbook, write down what you think this program
+will do.
 
 2. Copy and paste the code into a new Processing project.
 
@@ -353,6 +274,26 @@ draw section.
       // Set the background
       background(128);
 
-1. Note what you expect this to have on our program.
+1. What effect do you expect this change to have on our program?
 
-2. Try it and make notes about the effect.
+2. Try making the change and take notes about the effect.
+
+Summarize
+---------
+
+We've covered a variety of things in this lesson, including the
+structure of Processing programs, operations for creating ellipses
+and squares, techniques for creating animations, and more.  Note
+that you are effectively learning a new language: Processing has a
+vocabulary (e.g., words like `draw` and `float`), a grammar (e.g., we tell
+Processing to draw an ellipse by using `ellipse`, an open parenthesis,
+four values separated by commas, a close parenthesis, and a semicolon;
+more generally, we often tell processing to do things by writing a
+procedure name, an open parenthesis, the parameters separated by commas,
+a close parenthesis, and a semicolon), a semantics (e.g., when drawing
+a shape, Processing uses what you've previously told it about colors
+and pens), and such.
+
+As you learn new things in Processing, you will find it very helpful
+to take notes to yourself about the things in Processing you need
+to remember.  
